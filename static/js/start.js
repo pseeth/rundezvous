@@ -51,6 +51,7 @@ function next() {
 }
 
 $(document).ready(function() {
+	$('body').css('height', $(window).height());
 	$('#next').click(next);
 	$('.screen').hide();
 	advance();
