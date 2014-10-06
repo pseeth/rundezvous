@@ -1,8 +1,6 @@
 #next {
-	height: 50px;
-	padding: 20px;
-	margin: 10px;
-	border: 1px dashed lightgray;
+	height: 100px;
+	width: 200px;
 }
 
 .screen {
@@ -13,6 +11,7 @@
 body {
 	background-color: lightgray;
 	height: 100%;
+	font-weight: 200;
 }
 
 #home {
@@ -40,4 +39,97 @@ body {
 #next {
 	position: absolute;
 	bottom: 0;
+}
+.invite {
+	position: relative;
+	height: 100%;
+}
+.invite-text {
+	position: absolute;
+	top: 30px;
+}
+.invite-intro {
+	font-size: 36px;
+	text-align: center;
+}
+.invite-time {
+	font-size: 72px;
+	text-align: center;
+}
+.invite-outro {
+	font-size: 36px;
+	text-align: center;
+}
+.btnbar {
+	position: absolute;
+	bottom: 30px;
+	width: 100%;
+}
+.btn-join, .btn-decline, .btn-done {
+	display: inline-block;
+	width: 48%;
+	text-align: center;
+	color: white;
+	border-radius: 3px;
+	font-size: 22px;
+	padding: 10px 0 10px 0;
+}
+.btn-join {
+	background-color: #428bca;
+	float: left;
+}
+.btn-decline {
+	background-color: #d9534f;
+	float: right;
+}
+.start-running-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	font-size: 48px;
+	margin-top: -78px;
+	margin-left: -106px;
+}
+.icon img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -100px;
+}
+.direction .icon {
+	display: none;
+}
+.direction.turn_left .turn_left {
+	display: block;
+}
+.direction.turn_right .turn_right {
+	display: block;
+}
+.direction.go_straight .go_straight {
+	display: block;
+}
+.direction.stop .stop {
+	display: block;
+}
+.direction.destination_reached .destination_reached {
+	display: block;
+}
+.done-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	font-size: 48px;
+	margin-top: -117px;
+	margin-left: -107px;
+}
+.btn-done {
+	width: 250px;
+	background-color: #428bca;
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	margin-left: -125px;
 }

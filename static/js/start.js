@@ -1,7 +1,7 @@
-phases = ['#home', '#rundetails', '.direction', '#done'];
+phases = ['#home', '#rundetails', '#start-running', '.direction', '#done'];
 step = 0;
 
-directions = ['welcome', 'turn_left', 'turn_right', 'go_straight', 'stop', 'destination_reached'];
+directions = ['turn_left', 'turn_right', 'go_straight', 'stop', 'destination_reached'];
 dirstep = 0;
 
 function advance() {
@@ -12,6 +12,7 @@ function advance() {
 
 function updateDirection() {
 	$('.command').text(directions[dirstep]);
+	$('.direction').removeClass('turn_left turn_right go_straight stop destination_reached').addClass(directions[dirstep]);
 	play('/static/audio/' + directions[dirstep] + '.mp3');
 }
 
@@ -46,6 +47,12 @@ function next() {
 		else {
 			advance();
 		}
+	}
+	else {
+		$(phases[step-1]).hide();
+		step = 0;
+		dirstep = 0;
+		$(phases[step]).show();
 	}
 
 }
