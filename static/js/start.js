@@ -1,15 +1,12 @@
 phases = ['#home', '#rundetails', '.direction', '#done'];
 step = 0;
 
-directions = ['turn_left', 'turn_right', 'go_straight', 'stop'];
+directions = ['welcome', 'turn_left', 'turn_right', 'go_straight', 'stop', 'destination_reached'];
 dirstep = 0;
 
 function advance() {
 	$(phases[step-1]).hide();
 	$(phases[step]).show();
-	if (phases[step] == "#done") {
-		play("destination_reached");
-	}
 	console.log(phases[step]);
 }
 
