@@ -1,0 +1,12 @@
+#next {
+	height: 50px;
+	padding: 20px;
+	margin: 10px;
+	border: 1px dashed lightgray;
+}
+
+.screen {
+	padding: 20px;
+	margin: 10px;
+	border: 1px dashed lightgray;
+}
