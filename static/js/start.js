@@ -20,10 +20,11 @@ function play(file) {
 	$("#commandAudio").attr("src", file).detach().appendTo("#audio");
 	try {
 		audio.pause();
-		audio.currentTime = 0;
+		//audio.currentTime = 0;
 		audio.play();
 	}
 	catch (e) {
+        alert(e);
 		console.log("audio never loaded");
 		audio.play();
 	}
@@ -44,9 +45,13 @@ function next() {
 				step += 1;
 			}
 		} 
-		else {
-			advance();
-		}
+		else if (phases[step] == '#start-running') {
+			//play welcone_to_rundesvoux sound on join
+            play('/static/audio/welcome.mp3');
+            advance();
+		} else {
+            advance();
+        }
 	}
 	else {
 		$(phases[step-1]).hide();
