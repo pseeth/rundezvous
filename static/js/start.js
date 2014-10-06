@@ -60,6 +60,8 @@ function next() {
 $(document).ready(function() {
 	$('body').css('height', $(window).height());
 	$('#next').click(next);
+	$('.btn-join').click(next);
+	$('.logo').click(next);
 	$('.screen').hide();
 	advance();
 });
