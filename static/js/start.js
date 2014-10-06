@@ -1,40 +1,60 @@
 phases = ['#home', '#rundetails', '.direction', '#done'];
 step = 0;
 
-directions = ['left', 'right', 'straight']
+directions = ['turn_left', 'turn_right', 'go_straight', 'stop'];
 dirstep = 0;
 
 function advance() {
 	$(phases[step-1]).hide();
 	$(phases[step]).show();
+	if (phases[step] == "#done") {
+		play("destination_reached");
+	}
 	console.log(phases[step]);
 }
 
 function updateDirection() {
-	$('.direction').text(directions[dirstep]);
+	$('.command').text(directions[dirstep]);
+	play('/static/audio/' + directions[dirstep] + '.mp3');
+}
+
+function play(file) {
+	$("#commandAudio").attr("src", file).detach().appendTo("#audio");
+	try {
+		audio.pause();
+		audio.currentTime = 0;
+		audio.play();
+	}
+	catch (e) {
+		console.log("audio never loaded");
+		audio.play();
+	}
+}
+
+function next() {
+	step += 1;
+	if (step < phases.length) {
+		if (phases[step] == '.direction') {
+			if (dirstep == 0) {
+				advance();
+			}
+			updateDirection();
+			dirstep += 1;
+			step -= 1;
+			
+			if (dirstep >= directions.length) {
+				step += 1;
+			}
+		} 
+		else {
+			advance();
+		}
+	}
+
 }
 
 $(document).ready(function() {
-	$('#next').click(function() {
-		step += 1;
-		if (step < phases.length) {
-			if (phases[step] == '.direction') {
-				if (dirstep == 0) {
-					advance();
-				}
-				updateDirection();
-				dirstep += 1;
-				step -= 1;
-				
-				if (dirstep >= directions.length) {
-					step += 1;
-				}
-			} 
-			else {
-				advance();
-			}
-		}
-	});
+	$('#next').click(next);
 	$('.screen').hide();
 	advance();
 });
